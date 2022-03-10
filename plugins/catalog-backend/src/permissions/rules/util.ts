@@ -15,8 +15,18 @@
  */
 
 import { Entity } from '@backstage/catalog-model';
-import { makeCreatePermissionRule } from '@backstage/plugin-permission-node';
+import { RESOURCE_TYPE_CATALOG_ENTITY } from '@backstage/plugin-catalog-common';
+import {
+  makeCreatePermissionRule,
+  PermissionRule,
+} from '@backstage/plugin-permission-node';
 import { EntitiesSearchFilter } from '../../catalog/types';
+
+export type CatalogPermissionRule = PermissionRule<
+  Entity,
+  EntitiesSearchFilter,
+  typeof RESOURCE_TYPE_CATALOG_ENTITY
+>;
 
 /**
  * Helper function for creating correctly-typed
@@ -27,5 +37,6 @@ import { EntitiesSearchFilter } from '../../catalog/types';
  */
 export const createCatalogPermissionRule = makeCreatePermissionRule<
   Entity,
-  EntitiesSearchFilter
+  EntitiesSearchFilter,
+  typeof RESOURCE_TYPE_CATALOG_ENTITY
 >();

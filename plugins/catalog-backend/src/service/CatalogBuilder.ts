@@ -17,7 +17,6 @@
 import { PluginDatabaseManager, UrlReader } from '@backstage/backend-common';
 import {
   DefaultNamespaceEntityPolicy,
-  Entity,
   EntityPolicies,
   EntityPolicy,
   FieldFormatEntityPolicy,
@@ -32,7 +31,7 @@ import { ScmIntegrations } from '@backstage/integration';
 import { createHash } from 'crypto';
 import { Router } from 'express';
 import lodash, { keyBy } from 'lodash';
-import { EntitiesCatalog, EntitiesSearchFilter } from '../catalog';
+import { EntitiesCatalog } from '../catalog';
 
 import {
   CatalogProcessor,
@@ -79,10 +78,12 @@ import { Config } from '@backstage/config';
 import { Logger } from 'winston';
 import { LocationService } from './types';
 import { connectEntityProviders } from '../processing/connectEntityProviders';
-import { permissionRules as catalogPermissionRules } from '../permissions/rules';
+import {
+  CatalogPermissionRule,
+  permissionRules as catalogPermissionRules,
+} from '../permissions/rules';
 import { PermissionAuthorizer } from '@backstage/plugin-permission-common';
 import {
-  PermissionRule,
   createConditionTransformer,
   createPermissionIntegrationRouter,
 } from '@backstage/plugin-permission-node';
@@ -137,11 +138,7 @@ export class CatalogBuilder {
       maxSeconds: 150,
     });
   private locationAnalyzer: LocationAnalyzer | undefined = undefined;
-  private permissionRules: PermissionRule<
-    Entity,
-    EntitiesSearchFilter,
-    unknown[]
-  >[];
+  private permissionRules: CatalogPermissionRule[];
 
   /**
    * Creates a catalog builder.
@@ -375,13 +372,7 @@ export class CatalogBuilder {
    *
    * @param permissionRules - Additional permission rules
    */
-  addPermissionRules(
-    ...permissionRules: PermissionRule<
-      Entity,
-      EntitiesSearchFilter,
-      unknown[]
-    >[]
-  ) {
+  addPermissionRules(...permissionRules: CatalogPermissionRule[]) {
     this.permissionRules.push(...permissionRules);
   }
 
