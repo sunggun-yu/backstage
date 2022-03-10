@@ -1,5 +1,14 @@
 # @backstage/plugin-kubernetes
 
+## 0.6.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @backstage/catalog-model@0.14.0
+  - @backstage/plugin-catalog-react@0.9.1
+  - @backstage/plugin-kubernetes-common@0.2.8
+
 ## 0.6.2
 
 ### Patch Changes

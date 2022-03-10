@@ -1,7 +1,7 @@
 {
   "name": "@backstage/plugin-kubernetes-backend",
   "description": "A Backstage backend plugin that integrates towards Kubernetes",
-  "version": "0.4.12",
+  "version": "0.4.13",
   "main": "src/index.ts",
   "types": "src/index.ts",
   "license": "Apache-2.0",
@@ -36,10 +36,10 @@
   },
   "dependencies": {
     "@backstage/backend-common": "^0.13.0",
-    "@backstage/catalog-model": "^0.13.0",
+    "@backstage/catalog-model": "^0.14.0",
     "@backstage/config": "^0.1.15",
     "@backstage/errors": "^0.2.2",
-    "@backstage/plugin-kubernetes-common": "^0.2.7",
+    "@backstage/plugin-kubernetes-common": "^0.2.8",
     "@google-cloud/container": "^2.2.0",
     "@kubernetes/client-node": "^0.16.0",
     "@types/express": "^4.17.6",

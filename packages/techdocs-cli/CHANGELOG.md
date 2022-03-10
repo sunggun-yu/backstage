@@ -1,5 +1,13 @@
 # @techdocs/cli
 
+## 0.8.18
+
+### Patch Changes
+
+- Updated dependencies
+  - @backstage/catalog-model@0.14.0
+  - @backstage/plugin-techdocs-node@0.11.13
+
 ## 0.8.17
 
 ### Patch Changes

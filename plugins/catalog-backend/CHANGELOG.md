@@ -1,5 +1,18 @@
 # @backstage/plugin-catalog-backend
 
+## 0.25.0
+
+### Minor Changes
+
+- 02ad19d189: **BREAKING**: Removed the deprecated `metadata.generation` field entirely. It is no longer present in TS types, nor in the REST API output. Entities that have not yet been re-stitched may still have the field present for some time, but it will get phased out gradually by your catalog instance.
+
+### Patch Changes
+
+- Updated dependencies
+  - @backstage/catalog-model@0.14.0
+  - @backstage/catalog-client@0.9.1
+  - @backstage/plugin-scaffolder-common@0.3.1
+
 ## 0.24.0
 
 ### Minor Changes
